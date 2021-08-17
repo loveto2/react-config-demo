@@ -1,4 +1,9 @@
-console.log(process.argv);
+require('./getBasename');
+
+console.log(process.env.BASE_NAME);
+console.log(process.env.PUBLIC_PATH);
+debugger;
+
 module.exports = {
   type: 'web',
   framework: 'react',
@@ -30,7 +35,10 @@ module.exports = {
   // 定义
   // 注意：这些内容会直接用于文本替换，当值为字符串时需要额外增加引号
   // 比如： { PRODUCTION: '"production"'} 或 { PRODUCTION: JSON.stringify('production')}
-  define: {},
+  define: {
+    BASE_NAME: JSON.stringify(process.env.BASE_NAME),
+    // PUBLIC_PATH: JSON.stringify(process.env.PUBLIC_PATH),
+  },
   // 外部引用
   // 注意：这些依赖包不会被打包，请确保页面中已引入依赖包的 umd 或 cdn 资源
   // 比如： { jquery: 'jQuery', react: 'React', 'react-dom': 'ReactDOM' }
@@ -47,7 +55,7 @@ module.exports = {
   outputPath: 'dist',
   // 线上静态资源的根路径，默认为 '/'
   // 比如： '/static/'
-  staticUrl: '/candy',
+  staticUrl: process.env.PUBLIC_PATH || '/',
   // 自定义主题或主题文件路径
   theme: {},
   // 是否使用 CSS Modules

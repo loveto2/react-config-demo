@@ -7,6 +7,7 @@
     "build": "ndk-builder build",
     "build:nst": "ndk-builder build --mode nst",
     "dev": "ndk-builder dev",
+    "dev:nst": "ndk-builder dev --mode nst",
     "format": "prettier --write \"**/*{.css,.js,.json,.jsx,.less,.mjs,.ts,.tsx}\"",
     "lint": "npm run format && eslint --fix --ext \".js,.jsx,.mjs,.ts,.tsx\" .",
     "start": "ndk-server"
@@ -24,6 +25,7 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",
+    "dotenv": "^10.0.0",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {

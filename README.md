@@ -29,6 +29,7 @@
            ]
          ```
 
-        第一个参数固定是`node`的路径，第二个是被执行js文件的路径后面的参数是命令行里输入的，我们可以判断参数里有`--mode`并且其后一位有值，则将此值设置为对应的`public path`和`basename`即可
+        第一个参数固定是`node`的路径，第二个是被执行js文件的路径后面的参数是命令行里输入的，我们可以判断参数里有`--mode`并且其后一位有值，则将此值设置为对应的`public path`和`basename`即可。运行`yarn build:nst`查看打包后的文件，或者运行`yarn dev:nst`查看路由跳转是否正常，按`F12`后`head`和`body`标签里面的静态文件是否有加上`nst`前缀。
 
 3. 方法三（使用dotenv）
+  `yarn add dotenv`安装`dotenv`这个库，然后配置`path`，它会读取对应的文件将变量挂载到`process.env`上
