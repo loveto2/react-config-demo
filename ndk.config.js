@@ -1,4 +1,11 @@
-console.log(process.argv);
+let basename = '';
+const { argv } = process;
+console.log(argv);
+const index = argv.findIndex((arg) => arg === '--mode');
+if (index > -1 && argv[index + 1]) {
+  // 拼接一下 比如 参数是 candy 则拼接后的是 /candy
+  basename = `/${argv[index + 1]}`;
+}
 module.exports = {
   type: 'web',
   framework: 'react',
@@ -30,7 +37,9 @@ module.exports = {
   // 定义
   // 注意：这些内容会直接用于文本替换，当值为字符串时需要额外增加引号
   // 比如： { PRODUCTION: '"production"'} 或 { PRODUCTION: JSON.stringify('production')}
-  define: {},
+  define: {
+    NDK_BASE_NAME: basename ? JSON.stringify(basename) : '',
+  },
   // 外部引用
   // 注意：这些依赖包不会被打包，请确保页面中已引入依赖包的 umd 或 cdn 资源
   // 比如： { jquery: 'jQuery', react: 'React', 'react-dom': 'ReactDOM' }
@@ -47,7 +56,7 @@ module.exports = {
   outputPath: 'dist',
   // 线上静态资源的根路径，默认为 '/'
   // 比如： '/static/'
-  staticUrl: '/candy',
+  staticUrl: basename || '/',
   // 自定义主题或主题文件路径
   theme: {},
   // 是否使用 CSS Modules
