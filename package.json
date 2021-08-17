@@ -1,0 +1,43 @@
+{
+  "name": "ndk-config-demo",
+  "version": "0.1.0",
+  "description": "a react project",
+  "private": true,
+  "scripts": {
+    "build": "ndk-builder build",
+    "build:nst": "ndk-builder build --mode nst",
+    "dev": "ndk-builder dev",
+    "format": "prettier --write \"**/*{.css,.js,.json,.jsx,.less,.mjs,.ts,.tsx}\"",
+    "lint": "npm run format && eslint --fix --ext \".js,.jsx,.mjs,.ts,.tsx\" .",
+    "start": "ndk-server"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.10.2",
+    "antd": "^3.26.14",
+    "axios": "^0.19.2",
+    "core-js": "^3.6.5",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
+    "qs": "^6.9.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@nuofe/eslint-config-react": "8.0.3",
+    "@nuofe/ndk-builder": "8.0.4",
+    "@nuofe/ndk-server": "8.0.3",
+    "eslint": "^6.8.0",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.3"
+  },
+  "browserslist": [
+    ">0.5%",
+    ">0.5% in CN",
+    "not ie <= 8",
+    "ie 9"
+  ]
+}
