@@ -38,7 +38,7 @@ module.exports = {
   // 注意：这些内容会直接用于文本替换，当值为字符串时需要额外增加引号
   // 比如： { PRODUCTION: '"production"'} 或 { PRODUCTION: JSON.stringify('production')}
   define: {
-    NDK_BASE_NAME: basename ? JSON.stringify(basename) : '',
+    NDK_BASE_NAME: JSON.stringify(basename),
   },
   // 外部引用
   // 注意：这些依赖包不会被打包，请确保页面中已引入依赖包的 umd 或 cdn 资源
